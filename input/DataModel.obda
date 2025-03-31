@@ -1,0 +1,83 @@
+[PrefixDeclaration]
+:		https://w3id.org/pharmaccess/momcare/datamodel#
+bio:		https://w3id.org/biolink/vocab/
+hl7:		http://terminology.hl7.org/CodeSystem/
+owl:		http://www.w3.org/2002/07/owl#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+xml:		http://www.w3.org/XML/1998/namespace
+xsd:		http://www.w3.org/2001/XMLSchema#
+dcat:		http://www.w3.org/ns/dcat#
+ncit:		http://purl.obolibrary.org/obo/
+obda:		https://w3id.org/obda/vocabulary#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+
+[MappingDeclaration] @collection [[
+mappingId	MAPID-Patient
+target		:Patient/{id} a ncit:NCIT_C16960 ; ncit:NCIT_C68615 {birthDate}^^xsd:date ; ncit:NCIT_C17049 {gender} ; ncit:NCIT_C25188 {ms} . 
+source		SELECT id, birthDate, gender, json_extract_path_text(maritalStatus, 'text') as ms FROM "main"."Patient";
+
+mappingId	MAPID-Condition
+target		:Condition/{id} a ncit:NCIT_C25164 ; hl7:condition-clinical {clinicalstatus} ; hl7:condition-ver-status {verificationStatus} ; hl7:condition-category {category} ; ncit:NCIT_C93536 <https://icd.who.int/browse10/2019/en#/{code}> . 
+source		SELECT id, json_extract(clinicalStatus,'$.coding[0].code') AS clinicalstatus, json_extract(verificationStatus,'$.coding[0].code') AS verificationStatus, json_extract(category, '$[0].coding[0].code') AS category,
+			json_extract_string(code,'$.coding[0].code') AS code
+			FROM "main"."Condition";
+
+mappingId	MAP-Cond-Pat
+target		:Condition/{id} bio:subject :Patient/{pat} . 
+source		SELECT id, REPLACE(json_extract_path_text(subject, 'reference'), 'Patient/', '') AS pat FROM "main"."Condition";
+
+mappingId	MAPID-Encounter
+target		:Encounter/{id} a ncit:NCIT_C62143 ; ncit:NCIT_C25688 {status} ; hl7:v3-ActCode {code} ; ncit:NCIT_C119231 <http://snomed.info/sct/{type}> . 
+source		SELECT id, status, json_extract(class, 'code') AS code, json_extract_string(type,'$[0].coding[0].code') AS type FROM "main"."Encounter";
+
+mappingId	MAP-Cond-Encounter
+target		:Condition/{id} :encounter :Encounter/{encounter} . 
+source		SELECT id, REPLACE(json_extract_path_text(encounter, 'reference'), 'Encounter/', '') AS encounter FROM "main"."Condition";
+
+mappingId	MAP-Enc-Patient
+target		:Encounter/{id} bio:subject :Patient/{pat} . 
+source		SELECT id, REPLACE(json_extract_path_text(subject, 'reference'), 'Patient/', '') AS pat FROM "main"."Encounter";
+
+mappingId	MAPID-Procedure
+target		:Procedure/{id} a ncit:NCIT_C25218 ; ncit:NCIT_C25688 {status} ; ncit:NCIT_C117513 <http://snomed.info/sct/{category}> ; ncit:NCIT_C154626 <http://snomed.info/sct/{code}> ; ncit:NCIT_C37939 {performedDateTime} . 
+source		SELECT id, status, performedDateTime, json_extract_string(category,'$.coding[0].code') AS category, json_extract_string(code,'$.coding[0].code') AS code FROM "main"."Procedure";
+
+mappingId	MAP-Procedure-Patient
+target		:Procedure/{id} bio:subject :Patient/{pat} . 
+source		SELECT id, REPLACE(json_extract_path_text(subject, 'reference'), 'Patient/', '') AS pat FROM "main"."Procedure";
+
+mappingId	MAP-Procedure-Encounter
+target		:Procedure/{id} :encounter :Encounter/{encounter} . 
+source		SELECT id, REPLACE(json_extract_path_text(encounter, 'reference'), 'Encounter/', '') AS encounter FROM "main"."Procedure";
+
+mappingId	MAP-MedicationDispense
+target		:MedicationDispense/{id} a ncit:NCIT_C128534 ; ncit:NCIT_NHC0 <http://snomed.info/sct/{code}> ; ncit:NCIT_C25688 {status} ; ncit:NCIT_C37939 {whenHandedOver} . 
+source		SELECT id, json_extract(medicationCodeableConcept,'$.coding[0].code') AS code, status, whenHandedOver FROM "main"."MedicationDispense";
+
+mappingId	MAP-Medication-Patient
+target		:MedicationDispense/{id} bio:subject :Patient/{patient} . 
+source		SELECT
+			id, REPLACE(json_extract_string(subject, 'reference'),'Patient/', '') AS patient
+			FROM "main"."MedicationDispense";
+
+mappingId	MAP-Medication-Encounter
+target		:MedicationDispense/{id} :context :Encounter/{encounter} . 
+source		SELECT
+			id, REPLACE(json_extract_string(context, 'reference'),'Encounter/', '') AS encounter
+			FROM "main"."MedicationDispense";
+
+mappingId	MAP-Observation
+target		:Observation/{id} a ncit:NCIT_C116555 ; ncit:NCIT_C25688 {status} ; ncit:NCIT_NHC0 <http://loinc.org/{code}> ; ncit:NCIT_C37939 {effectiveDateTime} . 
+source		SELECT id, status, json_extract_string(code,'$.coding[0].code') AS code, effectiveDateTime FROM "main"."Observation"
+
+mappingId	MAP-Observation-Patient
+target		:Observation/{id} bio:subject :Patient/{patient} . 
+source		SELECT
+			id, REPLACE(json_extract_string(subject, 'reference'),'Patient/', '') AS patient
+			FROM "main"."Observation";
+
+mappingId	MAPID-Encounter2
+target		:Encounter/{id} a ncit:NCIT_C62143 ; dcat:startDate {comeco} ; dcat:endDate {end} . 
+source		SELECT id, json_extract_string(period, 'start') AS comeco, json_extract_string(period, 'end') AS end FROM "main"."Encounter";
+]]
+

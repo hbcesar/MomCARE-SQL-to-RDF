@@ -1,0 +1,297 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/pharmaccess/momcare/datamodel#"
+     xml:base="https://w3id.org/pharmaccess/momcare/datamodel"
+     xmlns:bio="https://w3id.org/biolink/vocab/"
+     xmlns:hl7="http://terminology.hl7.org/CodeSystem/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:dcat="http://www.w3.org/ns/dcat#"
+     xmlns:ncit="http://purl.obolibrary.org/obo/"
+     xmlns:obda="https://w3id.org/obda/vocabulary#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/pharmaccess/momcare/datamodel">
+        <owl:versionIRI rdf:resource="https://w3id.org/pharmaccess/momcare/datamodel/1.0"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCIT_C117513 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/NCIT_C117513"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCIT_C119231 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/NCIT_C119231"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCIT_C154626 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/NCIT_C154626"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCIT_C93536 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/NCIT_C93536"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCIT_NHC0 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/NCIT_NHC0"/>
+    
+
+
+    <!-- https://w3id.org/biolink/vocab/subject -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/biolink/vocab/subject">
+        <rdfs:label>Subject</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pharmaccess/momcare/datamodel#context -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pharmaccess/momcare/datamodel#context"/>
+    
+
+
+    <!-- https://w3id.org/pharmaccess/momcare/datamodel#encounter -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pharmaccess/momcare/datamodel#encounter"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCIT_C117513 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/NCIT_C117513"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCIT_C119231 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/NCIT_C119231"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCIT_C154626 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/NCIT_C154626"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCIT_C17049 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/NCIT_C17049">
+        <rdfs:label>Gender</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCIT_C25188 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/NCIT_C25188">
+        <rdfs:label>Marital Status</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCIT_C25688 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/NCIT_C25688">
+        <rdfs:label>Status</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCIT_C37939 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/NCIT_C37939">
+        <rdfs:label>Date and Time</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCIT_C68615 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/NCIT_C68615">
+        <rdfs:label>Birth Date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCIT_C93536 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/NCIT_C93536"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCIT_NHC0 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/NCIT_NHC0"/>
+    
+
+
+    <!-- http://terminology.hl7.org/CodeSystem/condition-category -->
+
+    <owl:DatatypeProperty rdf:about="http://terminology.hl7.org/CodeSystem/condition-category">
+        <rdfs:label>Condition Category</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://terminology.hl7.org/CodeSystem/condition-clinical -->
+
+    <owl:DatatypeProperty rdf:about="http://terminology.hl7.org/CodeSystem/condition-clinical">
+        <rdfs:label>Clinical Status</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://terminology.hl7.org/CodeSystem/condition-ver-status -->
+
+    <owl:DatatypeProperty rdf:about="http://terminology.hl7.org/CodeSystem/condition-ver-status">
+        <rdfs:label>Validation Status</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://terminology.hl7.org/CodeSystem/v3-ActCode -->
+
+    <owl:DatatypeProperty rdf:about="http://terminology.hl7.org/CodeSystem/v3-ActCode">
+        <rdfs:label>Act Code</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/dcat#endDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/dcat#endDate">
+        <rdfs:label>End Date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/dcat#startDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/dcat#startDate">
+        <rdfs:label>Start Date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCIT_C116555 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/NCIT_C116555">
+        <rdfs:label>Observation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCIT_C128534 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/NCIT_C128534">
+        <rdfs:label>Medication Dispense</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCIT_C16960 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/NCIT_C16960">
+        <rdfs:label>Patient</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCIT_C25164 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/NCIT_C25164">
+        <rdfs:label>Condition</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCIT_C25218 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/NCIT_C25218">
+        <rdfs:label>Procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCIT_C62143 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/NCIT_C62143">
+        <rdfs:label>Encounter</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/NCIT_C117513">
+        <rdfs:label>Procedure Category</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/NCIT_C119231">
+        <rdfs:label>Encounter Type</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/NCIT_C154626">
+        <rdfs:label>Procedure Code</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/NCIT_C93536">
+        <rdfs:label>Condition Code</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/NCIT_NHC0">
+        <rdfs:label>Code</rdfs:label>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
